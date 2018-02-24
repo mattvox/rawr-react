@@ -1,0 +1,24 @@
+{
+  "name": "rawr-react",
+  "version": "0.1.2",
+  "preferGlobal": true,
+  "bin": {
+    "rawr": "./bin/index.js"
+  },
+  "description": "Rawr saves devs valuable time by easily and quickly creating React projects or components from customized templates.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Matthew Bliffert",
+  "license": "ISC",
+  "dependencies": {
+    "commander": "^2.14.1",
+    "inquirer": "^5.1.0"
+  },
+  "devDependencies": {
+    "eslint": "^4.18.1",
+    "eslint-config-airbnb-base": "^12.1.0",
+    "eslint-plugin-import": "^2.8.0"
+  }
+}
