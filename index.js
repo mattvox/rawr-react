@@ -24,9 +24,8 @@ program
 program.parse(process.argv);
 
 function validateName(name) {
-  return /^([A-Za-z\-\_\d])+$/.test(name);
+  return /^([A-Za-z\-_\d])+$/.test(name);
 }
-
 
 /* Actions */
 
