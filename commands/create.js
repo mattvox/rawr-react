@@ -5,7 +5,7 @@ const CURRENT_DIR = process.cwd();
 const DEFAULT_TEMPLATE_PATH = 'git@github.com:mattvox/rawr-template-redux.git';
 
 module.exports = function createCommand(program) {
-  program
+  return program
     .command('create <name> [source]')
     .alias('-c')
     .description('Create a new React project from template')
@@ -48,15 +48,10 @@ function cloneTemplate(source, name) {
 }
 
 function removeFilesNotNeededFromTemplate(path) {
-  if (fs.existsSync(`${path}/.git`)) {
-    execSync(`rm -rf ${path}/.git`, { stdio: [0, 1, 2] });
-  }
+  const filesToRemove = ['.git', 'yarn.lock', 'package-lock.json'];
 
-  if (fs.existsSync(`${path}/yarn.lock`)) {
-    execSync(`rm ${path}/yarn.lock`, { stdio: [0, 1, 2] });
-  }
-
-  if (fs.existsSync(`${path}/package-lock.json`)) {
-    execSync(`rm ${path}/package-lock.json`, { stdio: [0, 1, 2] });
-  }
+  filesToRemove.forEach(file => (
+    fs.existsSync(`${path}/${file}`)
+      && execSync(`rm -rf ${path}/${file}`, { stdio: [0, 1, 2] })
+  ));
 }
