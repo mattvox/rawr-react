@@ -24,18 +24,18 @@ function createComponent(name, options, root) {
   const newContents = contents.replace(/RawrComponent/g, `${name}`);
 
 
-  const writePath = `${CURRENT_DIR}/components/${name}.js`;
+  const writePath = `${CURRENT_DIR}/src/components/${name}.js`;
 
-  const doesComponentsFolderExist = fs.statSync(`${CURRENT_DIR}/components`);
+  const doesComponentsFolderExist = fs.statSync(`${CURRENT_DIR}/src/components`);
 
   if (doesComponentsFolderExist) {
-    console.log('exists?', doesComponentsFolderExist);
+    // console.log('exists?', doesComponentsFolderExist);
   }
 
   else {
     console.log('does not exist');
   }
 
-  console.log(contents, writePath);
+  // console.log(contents, writePath);
   fs.writeFileSync(writePath, newContents, 'utf8');
 }
